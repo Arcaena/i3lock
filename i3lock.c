@@ -671,6 +671,7 @@ static void send_key_to_root(xcb_key_press_event_t *event, bool twice) {
     }
 
     xcb_grab_keyboard(conn, true, screen->root, XCB_CURRENT_TIME, XCB_GRAB_MODE_ASYNC, XCB_GRAB_MODE_ASYNC);
+    xcb_set_input_focus(conn, XCB_INPUT_FOCUS_PARENT /* revert_to */, win, XCB_CURRENT_TIME);
 }
 
 /*
